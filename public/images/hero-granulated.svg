@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Illustration of piles of granulated salt">
+  <title>Illustration of piles of granulated salt</title>
+  <rect width="1200" height="700" fill="#EADBCC"/>
+  <rect x="0" y="504" width="1200" height="196.00000000000003" fill="#D4B595"/>
+  
+      <polygon points="180,520 420,520 300,220" fill="#F3D3C0"/>
+      <polygon points="460,520 760,520 610,180" fill="#C89B67"/>
+      <polygon points="780,520 1080,520 930,250" fill="#763A22"/>
+    
+</svg>

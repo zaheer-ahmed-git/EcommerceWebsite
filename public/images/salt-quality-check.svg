@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-label="Illustration of salt crystals in a tray">
+  <title>Illustration of salt crystals in a tray</title>
+  <rect width="800" height="520" fill="#EADBCC"/>
+  <rect x="0" y="374.4" width="800" height="145.60000000000002" fill="#D4B595"/>
+  
+      <rect x="140" y="220" width="520" height="320" rx="20" fill="#763A22"/>
+      <rect x="180" y="260" width="440" height="240" fill="#F7EFE6"/>
+      <polygon points="280,360 320,300 360,360" fill="#C89B67"/>
+      <polygon points="400,400 450,310 500,400" fill="#A97445"/>
+      <polygon points="500,340 530,290 560,340" fill="#763A22"/>
+    
+</svg>

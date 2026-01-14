@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Illustration of a bath salt set">
+  <title>Illustration of a bath salt set</title>
+  <rect width="800" height="800" fill="#EADBCC"/>
+  <rect x="0" y="576" width="800" height="224.00000000000003" fill="#D4B595"/>
+  
+      <rect x="210" y="240" width="120" height="300" rx="16" fill="#763A22"/>
+      <rect x="340" y="180" width="120" height="360" rx="16" fill="#C89B67"/>
+      <rect x="470" y="270" width="120" height="270" rx="16" fill="#A97445"/>
+      <rect x="230" y="270" width="80" height="120" fill="#F7E6DC"/>
+      <rect x="360" y="210" width="80" height="140" fill="#FFF8F2"/>
+      <rect x="490" y="300" width="80" height="110" fill="#EADBCC"/>
+    
+</svg>

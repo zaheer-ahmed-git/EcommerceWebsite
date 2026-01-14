@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Illustration of a Himalayan salt lamp">
+  <title>Illustration of a Himalayan salt lamp</title>
+  <rect width="800" height="800" fill="#EADBCC"/>
+  <rect x="0" y="576" width="800" height="224.00000000000003" fill="#D4B595"/>
+  
+      <polygon points="400,150 490,390 520,620 280,620 310,390" fill="#C89B67"/>
+      <polygon points="400,180 455,390 470,560 330,560 345,390" fill="#E7C8A4"/>
+      <rect x="360" y="620" width="80" height="36" rx="6" fill="#763A22"/>
+      <circle cx="400" cy="430" r="28" fill="#F4E3D0" opacity="0.85"/>
+    
+</svg>

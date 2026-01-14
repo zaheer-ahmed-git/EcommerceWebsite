@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Illustration of a salt grinder set">
+  <title>Illustration of a salt grinder set</title>
+  <rect width="800" height="800" fill="#EADBCC"/>
+  <rect x="0" y="576" width="800" height="224.00000000000003" fill="#D4B595"/>
+  
+      <rect x="250" y="180" width="90" height="390" rx="40" fill="#763A22"/>
+      <rect x="270" y="230" width="50" height="250" rx="16" fill="#EADBCC"/>
+      <rect x="460" y="220" width="90" height="350" rx="40" fill="#C89B67"/>
+      <rect x="480" y="270" width="50" height="210" rx="16" fill="#FFF8F2"/>
+      <rect x="268" y="560" width="54" height="18" fill="#4A2416"/>
+      <rect x="478" y="560" width="54" height="18" fill="#4A2416"/>
+    
+</svg>

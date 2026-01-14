@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700" role="img" aria-label="Illustration of three salt lamps">
+  <title>Illustration of three salt lamps</title>
+  <rect width="1200" height="700" fill="#EADBCC"/>
+  <rect x="0" y="504" width="1200" height="196.00000000000003" fill="#D4B595"/>
+  
+      <polygon points="280,160 360,360 390,520 170,520 200,360" fill="#C89B67"/>
+      <polygon points="600,120 700,340 740,520 460,520 500,340" fill="#A97445"/>
+      <polygon points="920,200 990,370 1010,520 820,520 850,370" fill="#763A22"/>
+    
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="Illustration of a salt cooking block">
+  <title>Illustration of a salt cooking block</title>
+  <rect width="800" height="800" fill="#EADBCC"/>
+  <rect x="0" y="576" width="800" height="224.00000000000003" fill="#D4B595"/>
+  
+      <polygon points="180,520 620,520 560,300 240,300" fill="#C89B67"/>
+      <polygon points="240,300 560,300 520,230 280,230" fill="#E7C8A4"/>
+      <polygon points="300,250 360,250 340,210 280,210" fill="#763A22"/>
+    
+</svg>

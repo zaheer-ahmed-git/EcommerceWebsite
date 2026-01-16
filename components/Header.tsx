@@ -1,152 +1,162 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
-import { ShoppingCart, Heart, Menu, X, Search } from "lucide-react";
-import Image from "next/image"; // Import Image component
 
-const Header = () => {
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Search, X } from "lucide-react";
+import { navLinks } from "@/lib/site";
+
+function isCurrent(pathname: string, href: string): boolean {
+  if (href === "/") {
+    return pathname === "/";
+  }
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
+export default function Header() {
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsSearchOpen(false);
+  }, [pathname]);
 
   return (
-    <>
-      {/* Top Bar */}
-      <div className="bg-crescent-dark-brown text-crescent-white py-2 text-center text-sm">
-        Free shipping on orders over $50 | Use code PURELAMP for 15% off your
-        first order
+    <header>
+      <a
+        href="#main"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:px-3 focus:py-2 focus:text-crescent-dark-brown"
+      >
+        Skip to content
+      </a>
+      <div className="bg-crescent-dark-brown py-2 text-center text-sm text-white">
+        Online checkout is not open yet. Request a product and we reply by email.
       </div>
-
-      {/* Navigation */}
-      <nav className="bg-crescent-white shadow-md">
+      <nav aria-label="Main" className="border-b border-crescent-beige bg-white">
         <div className="container mx-auto px-4 py-3">
-          <div className="flex justify-between items-center">
-            {/* Logo - Shown on both mobile and desktop */}
-            <Link href="/">
+          <div className="flex items-center justify-between gap-4">
+            <Link href="/" className="shrink-0">
               <Image
-                src="/logo.png" // Path to your logo
-                alt="Crescent Saline Logo"
-                width={150} // Adjust size as needed
-                height={50} // Adjust size as needed
+                src="/logo.png"
+                alt="Crescent Saline"
+                width={150}
+                height={50}
                 priority
-                className="h-auto w-auto"
+                className="h-12 w-auto"
+                style={{ height: "3rem", width: "auto" }}
               />
             </Link>
 
-            {/* Desktop Links */}
-            <div className="hidden md:flex space-x-8">
-              <Link
-                href="/"
-                className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-              >
-                Home
-              </Link>
-              <Link
-                href="/shop"
-                className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-              >
-                Shop
-              </Link>
-              <Link
-                href="/about"
-                className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-              >
-                About Our Salt
-              </Link>
-              <Link
-                href="/sustainability"
-                className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-              >
-                Sustainability
-              </Link>
-              <Link
-                href="/contact"
-                className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-              >
-                Contact
-              </Link>
+            <div className="hidden items-center gap-8 md:flex">
+              {navLinks.map((link) => {
+                const current = isCurrent(pathname, link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={current ? "page" : undefined}
+                    className={`focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-crescent-dark-brown ${
+                      current
+                        ? "font-semibold text-crescent-dark-brown"
+                        : "text-crescent-dark-brown/80 hover:text-crescent-dark-brown"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
 
-            {/* Search and Icons */}
-            <div className="flex items-center space-x-4">
-              {/* Desktop Search Input */}
-              <div className="hidden md:block relative">
+            <div className="flex items-center gap-3">
+              <form action="/shop" method="get" role="search" className="relative hidden md:block">
+                <label htmlFor="site-search" className="sr-only">
+                  Search salts
+                </label>
                 <input
-                  type="text"
+                  id="site-search"
+                  name="q"
+                  type="search"
                   placeholder="Search salts..."
-                  className="pl-8 pr-4 py-2 rounded-full border border-crescent-beige focus:outline-none focus:ring-2 focus:ring-crescent-dark-brown"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="rounded-full border border-crescent-beige py-2 pl-10 pr-4 text-crescent-dark-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-crescent-dark-brown"
                 />
                 <Search
-                  className="absolute left-3 top-2.5 text-crescent-brown"
+                  className="pointer-events-none absolute left-3 top-2.5 text-crescent-dark-brown"
                   size={18}
+                  aria-hidden="true"
                 />
-              </div>
+              </form>
 
-              {/* Mobile Search Icon */}
-              <div className="md:hidden">
-                <button className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300">
-                  <Search size={24} />
-                </button>
-              </div>
-
-              {/* Cart and Wishlist Icons */}
-              <button className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300">
-                <ShoppingCart size={24} />
-              </button>
-              <button className="text-crescent-brown hover:text-crescent-dark-brown transition duration-300">
-                <Heart size={24} />
-              </button>
-
-              {/* Mobile Menu Button */}
               <button
-                className="md:hidden text-crescent-brown"
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                type="button"
+                className="text-crescent-dark-brown md:hidden"
+                aria-expanded={isSearchOpen}
+                aria-controls="mobile-search"
+                onClick={() => setIsSearchOpen((open) => !open)}
               >
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                <span className="sr-only">
+                  {isSearchOpen ? "Close search" : "Open search"}
+                </span>
+                <Search size={24} aria-hidden="true" />
+              </button>
+
+              <button
+                type="button"
+                className="text-crescent-dark-brown md:hidden"
+                aria-expanded={isMenuOpen}
+                aria-controls="mobile-menu"
+                onClick={() => setIsMenuOpen((open) => !open)}
+              >
+                <span className="sr-only">
+                  {isMenuOpen ? "Close menu" : "Open menu"}
+                </span>
+                {isMenuOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
               </button>
             </div>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-crescent-white border-b border-crescent-beige p-4">
-          <Link
-            href="/"
-            className="block py-2 text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-          >
-            Home
-          </Link>
-          <Link
-            href="/shop"
-            className="block py-2 text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-          >
-            Shop
-          </Link>
-          <Link
-            href="/about"
-            className="block py-2 text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-          >
-            About Our Salt
-          </Link>
-          <Link
-            href="/sustainability"
-            className="block py-2 text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-          >
-            Sustainability
-          </Link>
-          <Link
-            href="/contact"
-            className="block py-2 text-crescent-brown hover:text-crescent-dark-brown transition duration-300"
-          >
-            Contact
-          </Link>
-        </div>
-      )}
-    </>
-  );
-};
+      {isSearchOpen ? (
+        <form
+          id="mobile-search"
+          action="/shop"
+          method="get"
+          role="search"
+          className="border-b border-crescent-beige bg-white px-4 py-3 md:hidden"
+        >
+          <label htmlFor="mobile-site-search" className="sr-only">
+            Search salts
+          </label>
+          <input
+            id="mobile-site-search"
+            name="q"
+            type="search"
+            placeholder="Search salts..."
+            className="w-full rounded-full border border-crescent-beige px-4 py-2 text-crescent-dark-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-crescent-dark-brown"
+          />
+        </form>
+      ) : null}
 
-export default Header;
+      {isMenuOpen ? (
+        <div id="mobile-menu" className="border-b border-crescent-beige bg-white px-4 py-2 md:hidden">
+          {navLinks.map((link) => {
+            const current = isCurrent(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={current ? "page" : undefined}
+                className="block py-2 text-crescent-dark-brown focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-crescent-dark-brown"
+              >
+                {link.label}
+              </Link>
+            );
+          })}
+        </div>
+      ) : null}
+    </header>
+  );
+}

@@ -1,40 +1,38 @@
-import React from "react";
 import Image from "next/image";
-
+import Link from "next/link";
 
 export default function CommitmentSection() {
   return (
-    <section className="py-16 bg-crescent-beige">
+    <section className="bg-crescent-beige py-16">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
+        <div className="flex flex-col items-center md:flex-row">
+          <div className="mb-8 w-full md:mb-0 md:w-1/2">
             <Image
-              src="/placeholder.svg?height=400&width=600"
-              alt="Salt harvesting"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
+              src="/images/salt-harvesting.svg"
+              alt="Illustration of salt flats"
+              width={800}
+              height={520}
+              className="h-auto w-full rounded-lg"
             />
           </div>
           <div className="md:w-1/2 md:pl-12">
-            <h2 className="text-3xl font-bold mb-6 text-crescent-dark-brown">
-              The Art of Salt Craftsmanship
+            <h2 className="mb-6 text-3xl font-bold text-crescent-dark-brown">
+              How we talk about the salt
             </h2>
-            <p className="text-crescent-dark-brown mb-4">
-              At Crescent Saline, we take pride in our meticulous salt
-              harvesting and crafting process. Our expert artisans use
-              traditional methods combined with modern techniques to ensure the
-              highest quality salt products.
+            <p className="mb-4 text-crescent-dark-brown">
+              Crescent Saline lists cooking salts, lamps, soaps, and bath salts.
+              This website does not take payment and does not track a parcel.
             </p>
-            <p className="text-crescent-dark-brown mb-6">
-              From the pristine Himalayan mines to our carefully crafted salt
-              lamps, we source and create products that preserve the natural
-              minerals and unique properties that make our offerings truly
-              exceptional.
+            <p className="mb-6 text-crescent-dark-brown">
+              If you want a product, send a request. We reply by email with
+              availability and the delivery cost for your address.
             </p>
-            <button className="bg-crescent-brown text-crescent-white px-6 py-3 rounded-full hover:bg-crescent-dark-brown transition duration-300">
-              Learn More About Our Process
-            </button>
+            <Link
+              href="/about"
+              className="inline-block rounded-full bg-crescent-dark-brown px-6 py-3 text-white hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Read our story
+            </Link>
           </div>
         </div>
       </div>

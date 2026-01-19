@@ -1,81 +1,80 @@
-import React from "react";
 import { Star } from "lucide-react";
-import Image from "next/image";
 
 const testimonials = [
   {
-    id: 1,
-    name: "Sarah L.",
-    location: "Portland, OR",
-    text: "These Himalayan Salt Lamps from Crescent Saline transformed my living space! The warm glow creates such a peaceful ambiance.",
+    id: "sample-1",
+    name: "Sample visitor",
+    location: "Example",
+    text: "The salt lamp gives a warm light on a side table. This sentence is an example, not a verified review.",
     rating: 5,
-    image: "/images/testimonials/sarah-l.jpg",
   },
   {
-    id: 2,
-    name: "Michael T.",
-    location: "Austin, TX",
-    text: "I was amazed by the quality of the Gourmet Salt Sampler. Every variety adds a unique flavor to my dishes.",
+    id: "sample-2",
+    name: "Sample cook",
+    location: "Example",
+    text: "The sampler is a useful way to taste more than one salt. This sentence is an example, not a verified review.",
     rating: 4,
-    image: "/images/testimonials/michael-t.jpg",
   },
   {
-    id: 3,
-    name: "Emma R.",
-    location: "Seattle, WA",
-    text: "The salt lamps from Crescent Saline are not only beautiful but also help purify the air in my home. Highly recommended!",
+    id: "sample-3",
+    name: "Sample reader",
+    location: "Example",
+    text: "The catalog is clear about asking by email before a purchase. This sentence is an example, not a verified review.",
     rating: 4,
-    image: "/images/testimonials/emma-r.jpg",
   },
 ];
 
-const TestimonialCard: React.FC<{
-  name: string;
-  location: string;
-  text: string;
-  rating: number;
-  image: string;
-}> = ({ name, location, text, rating, image }) => (
-  <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-300">
-    <div className="flex items-center mb-6">
-      <Image
-        src={image}
-        alt={name}
-        className="w-16 h-16 rounded-full mr-4 border-2 border-crescent-brown"
-        width={16}
-        height={16}
-      />{" "}
-      <div>
-        <h4 className="font-semibold text-lg text-crescent-dark-brown">
-          {name}
-        </h4>
-        <p className="text-sm text-gray-500">{location}</p>
-      </div>
-    </div>
-    <p className="text-gray-700 mb-6 leading-relaxed">{text}</p>
-    <div className="flex space-x-1">
-      {[...Array(5)].map((_, i) => (
-        <Star
-          key={i}
-          className={`w-5 h-5 ${
-            i < rating ? "text-yellow-400 fill-current" : "text-gray-300"
-          }`}
-        />
-      ))}
-    </div>
-  </div>
-);
+function initials(name: string): string {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-gradient-to-b from-crescent-light-beige to-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl font-extrabold text-crescent-dark-brown text-center mb-12">
-          What Our Customers Say
+    <section className="bg-crescent-light-beige px-4 py-12 sm:px-6 lg:px-8" aria-labelledby="samples-heading">
+      <div className="mx-auto max-w-7xl">
+        <h2 id="samples-heading" className="mb-4 text-center text-4xl font-extrabold text-crescent-dark-brown">
+          Sample notes
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        <p className="mx-auto mb-12 max-w-2xl text-center text-crescent-dark-brown">
+          These notes show the tone of the catalog. They are not reviews from customers, and the stars are not a score from purchases.
+        </p>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <TestimonialCard key={testimonial.id} {...testimonial} />
+            <article key={testimonial.id} className="rounded-lg bg-white p-8">
+              <div className="mb-6 flex items-center">
+                <div
+                  className="mr-4 flex h-16 w-16 items-center justify-center rounded-full border-2 border-crescent-dark-brown font-semibold text-crescent-dark-brown"
+                  aria-hidden="true"
+                >
+                  {initials(testimonial.name)}
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-crescent-dark-brown">
+                    {testimonial.name}
+                  </h3>
+                  <p className="text-sm text-crescent-dark-brown/70">{testimonial.location}</p>
+                </div>
+              </div>
+              <p className="mb-6 leading-relaxed text-crescent-dark-brown">{testimonial.text}</p>
+              <div className="flex gap-1" aria-label={`Example rating ${testimonial.rating} out of 5`}>
+                {Array.from({ length: 5 }, (_, index) => (
+                  <Star
+                    key={index}
+                    className={`h-5 w-5 ${
+                      index < testimonial.rating
+                        ? "fill-current text-crescent-dark-brown"
+                        : "text-crescent-beige"
+                    }`}
+                    aria-hidden="true"
+                  />
+                ))}
+              </div>
+            </article>
           ))}
         </div>
       </div>

@@ -1,108 +1,91 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "The story of Crescent Saline and the salt products listed in the catalog.",
+};
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-[#EADBCC] ">
-      <Header />
+    <div className="min-h-screen bg-crescent-light-beige">
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-12 text-[#763A22]">
+        <h1 className="mb-12 text-center text-4xl font-bold text-crescent-dark-brown">
           About Crescent Saline
         </h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
+        <div className="mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <Image
+            src="/images/salt-harvesting.svg"
+            alt="Illustration of salt flats"
+            width={800}
+            height={520}
+            className="h-auto w-full rounded-lg"
+          />
           <div>
-            <Image
-              src="/images/salt-harvesting.jpg"
-              alt="Salt harvesting"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold mb-6 text-[#763A22]">
-              Our Story
-            </h2>
-            <p className="text-[#763A22] mb-4">
-              Crescent Saline was born out of a passion for high-quality,
-              natural salt products. Our journey began in the pristine salt
-              flats of the Himalayas, where we discovered the incredible purity
-              and rich mineral content of pink Himalayan salt.
+            <h2 className="mb-6 text-3xl font-bold text-crescent-dark-brown">Our story</h2>
+            <p className="mb-4 text-crescent-dark-brown">
+              Crescent Saline started from an interest in cooking salt and salt
+              objects for the home. The catalog focuses on pink salt, lamps,
+              grinders, soaps, and bath salts.
             </p>
-            <p className="text-[#763A22] mb-4">
-              Inspired by this discovery, we set out to bring the finest salt
-              products to homes and kitchens around the world. Today, Crescent
-              Saline offers a wide range of salt products, from culinary salts
-              to wellness items, all sourced with the utmost care for quality
-              and sustainability.
+            <p className="mb-4 text-crescent-dark-brown">
+              This website shows the products and their prices. It does not take
+              payment. A request goes out by email, and we reply with availability.
             </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-          <div className="order-2 md:order-1">
-            <h2 className="text-3xl font-bold mb-6 text-[#763A22]">
-              Our Commitment to Quality
+        <div className="mb-16 grid grid-cols-1 items-center gap-12 md:grid-cols-2">
+          <div className="md:order-1">
+            <h2 className="mb-6 text-3xl font-bold text-crescent-dark-brown">
+              What we check
             </h2>
-            <p className="text-[#763A22] mb-4">
-              At Crescent Saline, quality is our top priority. We work directly
-              with skilled salt farmers and artisans to ensure that every
-              product meets our exacting standards. Our salts are harvested
-              using traditional methods that preserve their natural mineral
-              content and unique flavors.
+            <p className="mb-4 text-crescent-dark-brown">
+              We look at the salt before it is listed: the grain, the color, and
+              the pack. Questions about a batch are answered by email, not by an
+              automatic page on this site.
             </p>
-            <p className="text-[#763A22] mb-4">
-              We believe in transparency and traceability, which is why we
-              carefully document the journey of our salt from source to shelf.
-              This commitment to quality extends to every aspect of our
-              business, from customer service to packaging and shipping.
+            <p className="mb-4 text-crescent-dark-brown">
+              We do not describe these products as medical treatment. A salt lamp
+              is a light. An inhaler in the catalog is a home object, not a device
+              that treats breathing.
             </p>
           </div>
-          <div className="order-1 md:order-2">
-            <Image
-              src="/images/salt-quality-check.jpg"
-              alt="Salt quality check"
-              width={600}
-              height={400}
-              className="rounded-lg shadow-lg"
-            />
-          </div>
+          <Image
+            src="/images/salt-quality-check.svg"
+            alt="Illustration of salt crystals in a tray"
+            width={800}
+            height={520}
+            className="h-auto w-full rounded-lg md:order-2"
+          />
         </div>
 
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-6 text-[#763A22]">
-            Our Product Range
+        <div className="mb-16 text-center">
+          <h2 className="mb-6 text-3xl font-bold text-crescent-dark-brown">
+            What you can browse
           </h2>
-          <p className="text-[#763A22] mb-4 max-w-2xl mx-auto">
-            From gourmet cooking salts to luxurious bath products, Crescent
-            Saline offers a diverse range of salt-based items to enhance your
-            culinary adventures and wellness routines. Explore our collection
-            of:
-          </p>
-          <ul className="text-[#763A22] list-disc list-inside max-w-md mx-auto text-left">
-            <li>Gourmet cooking salts</li>
+          <ul className="mx-auto max-w-md list-disc space-y-2 text-left text-crescent-dark-brown">
+            <li>Cooking salts</li>
             <li>Himalayan salt lamps</li>
-            <li>Natural salt soaps and scrubs</li>
-            <li>Salt inhalers for respiratory health</li>
+            <li>Salt soaps</li>
+            <li>Salt inhalers, sold as home objects</li>
             <li>Salt blocks for cooking and serving</li>
-            <li>Luxury bath salts</li>
+            <li>Bath salts</li>
           </ul>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold mb-6 text-center text-[#763A22]">
-            Our Mission
+        <div className="rounded-lg bg-white p-8">
+          <h2 className="mb-6 text-center text-3xl font-bold text-crescent-dark-brown">
+            Our aim
           </h2>
-          <p className="text-[#763A22] text-center text-lg italic">
-          &quot;To bring the purity and benefits of natural salt to every home,
-            enhancing culinary experiences and promoting wellness through
-            sustainable and ethically sourced products.&quot;
+          <p className="text-center text-lg text-crescent-dark-brown">
+            To show clear salt products for cooking and the home, and to answer
+            product requests by email until checkout exists.
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
